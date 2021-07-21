@@ -7,8 +7,77 @@
     <title>Contatos</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
 
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            background-color: rgb(223, 223, 223);
+
+            padding: 50px 100px;
+        }
+
+        h1 {
+            width: 30%;
+            text-align: center;
+            font-size: 25px;
+
+            color: white;
+            box-shadow: 3px 5px 8px gray;
+
+            background-color: teal;
+
+            padding: 10px 0;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        li {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+
+        li img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .contatos {
+            list-style-type: none;
+
+            box-shadow: 3px 5px 8px gray;
+
+            background-color: white;
+
+            padding: 30px 40px;
+            border-radius: 10px;
+        }
+
+        .informacao-contato {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+
+            padding-left: 20px;
+        }
+
+        .nome {
+            border-bottom: 1px solid gray;
+            margin-bottom: 10px;
+        }
     </style>
+
 </head>
 
 <body>
@@ -91,6 +160,16 @@
         descricao: '🐱🐶',
         imagem: `${caminhoImagens}/lurdes.jpg`
     }];
+    const cincoPrimeiros = contatos.sort((a, b) => b.mensagens - a.mensagens).slice(0, 5);
+    const li = document.querySelectorAll('li');
+    const img = document.querySelectorAll('img');
+    const nome = document.querySelectorAll('.nome');
+    const descricao = document.querySelectorAll('.descricao');
+    for (i = 0; i < li.length; i++) {
+        img[i].src = cincoPrimeiros[i].imagem;
+        nome[i].textContent = cincoPrimeiros[i].nome;
+        descricao[i].textContent = cincoPrimeiros[i].descricao;
+    }
 </script>
 
 </html>
